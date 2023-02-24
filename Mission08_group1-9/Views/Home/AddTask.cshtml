@@ -12,7 +12,8 @@
             <th>Category</th>
             <th>Task Name</th>
             <th>Due Date</th>
-            <th>Quadrant</th>
+            <th>Urgent</th>
+            <th>Important</th>
             <th></th>
             
         </tr>
@@ -39,20 +40,20 @@
             </td>
 
             <td>
-                <select class="form-control" form="form">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
+                <select asp-for="Urgent" class="form-control" form="form">
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>       
+            </td>
+            <td>
+                <select asp-for="Important" class="form-control" form="form">
+                    <option value="true">True</option>
+                    <option value="false">False</option>
                 </select>
             </td>
             <td>
                 <button type="submit" form="form" class="btn btn primary">Add</button>
             </td>
-
-
-
-
         </tr>
 
         @*Add each record from the database to the table*@
