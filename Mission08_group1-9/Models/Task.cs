@@ -14,6 +14,10 @@ namespace Mission08_group1_9.Models
         [Required]
         public string TaskTitle { get; set; }
         public string DueDate { get; set; }
+        [Required]
+        public bool Urgent { get; set; }
+        [Required]
+        public bool Important { get; set; }
         public bool Completed { get; set; }
 
         // Build foreign key relationship

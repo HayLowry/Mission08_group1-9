@@ -8,7 +8,7 @@ using Mission08_group1_9.Models;
 namespace Mission08_group1_9.Migrations
 {
     [DbContext(typeof(TaskContext))]
-    [Migration("20230223164039_Initial")]
+    [Migration("20230224221815_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,9 +68,15 @@ namespace Mission08_group1_9.Migrations
                     b.Property<string>("DueDate")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("Important")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("TaskTitle")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("Urgent")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("TaskId");
 
@@ -85,7 +91,9 @@ namespace Mission08_group1_9.Migrations
                             CategoryId = 1,
                             Completed = false,
                             DueDate = "2023-02-25",
-                            TaskTitle = "My First Task"
+                            Important = false,
+                            TaskTitle = "My First Task",
+                            Urgent = false
                         });
                 });
 

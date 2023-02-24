@@ -49,7 +49,9 @@ namespace Mission08_group1_9.Models
                     TaskTitle = "My First Task",
                     DueDate = "2023-02-25",
                     Completed = false,
-                    CategoryId = 1
+                    CategoryId = 1,
+                    Urgent = false,
+                    Important = false
                 }
             );
         }
