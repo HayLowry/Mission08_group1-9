@@ -1,0 +1,64 @@
+﻿@{
+}
+@model Mission08_group1_9.Models.Task
+<form id="form" method="post"></form>
+<table class="table table-striped">
+    <tr>
+        <th>Category</th>
+        <th>Task Name</th>
+        <th>Due Date</th>
+        <th>Quadrant</th>
+        <th>Complete</th>
+    </tr>
+    <tr>
+        <td>
+            @*for each category display a new option in the dropdown*@
+            @*<label asp-for="CategoryId">Category</label>*@
+            <select asp-for="CategoryId" class="form-control" form="form">
+                <option disabled>Select a Category</option>
+                @*@foreach (Category cat in ViewBag.Categories)
+                    {
+                        <option value="@cat.CategoryId">@cat.CategoryName</option>
+                    }*@
+            </select>
+
+        </td>
+        <td>
+            @*<label asp-for="TaskTitle">Task Name</label>*@
+            <input type="text" asp-for="TaskTitle" class="form-control" form="form" />
+        </td>
+        <td>
+            @*<label asp-for="DueDate">Due Date</label>*@
+            <input asp-for="DueDate" type="datetime-local" class="form-control" form="form" />
+        </td>
+        <td>
+            <select class="form-control" form="form">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+        </td>
+
+        <td>
+            <input asp-for="Completed" class="form-check-input" type="checkbox" value="True">
+        </td>
+
+
+    </tr>
+
+    @*Add each record from the database to the table*@
+    @foreach (Mission08_group1_9.Models.Task task in ViewBag.Task)
+    {
+        <tr>
+            <td>@task.Category</td>
+            <td>@task.TaskTitle</td>
+            <td>@task.DueDate</td>
+            <td>@task.Quadrant</td>
+        </tr>
+    }
+
+
+
+</table>
+
