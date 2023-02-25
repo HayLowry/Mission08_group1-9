@@ -60,15 +60,15 @@ namespace Mission08_group1_9.Controllers
 
         }
 
-        //[HttpGet]
-        //public IActionResult Quadrants()
-        //{
-        //    var prospectives = _privateTaskContext.Tasks
-        //        .Include(x => x.Category)
-        //        .ToList();
+        [HttpGet]
+        public IActionResult Quadrants()
+        {
+            var prospectives = _privateTaskContext.Tasks
+                .Include(x => x.Category)
+                .ToList();
 
-        //    return View(prospectives);
-        //}
+            return View(prospectives);
+        }
 
         [HttpGet]
         public IActionResult Edit(int id)
@@ -79,14 +79,14 @@ namespace Mission08_group1_9.Controllers
             return View("AddTask", submission);
         }
 
-        //[HttpPost]
-        //public IActionResult Edit(Mission08_group1_9.Models.Task keiraKnightley)
-        //{
-        //    _privateTaskContext.Update(keiraKnightley);
-        //    _privateTaskContext.SaveChanges();
+        [HttpPost]
+        public IActionResult Edit(Mission08_group1_9.Models.Task keiraKnightley)
+        {
+            _privateTaskContext.Update(keiraKnightley);
+            _privateTaskContext.SaveChanges();
 
-        //    return RedirectToAction("Quadrants");
-        //}
+            return RedirectToAction("Quadrants");
+        }
 
         [HttpGet]
         public IActionResult Delete(int id)
@@ -95,14 +95,14 @@ namespace Mission08_group1_9.Controllers
             return View(submission);
         }
 
-        //[HttpPost]
-        //public IActionResult Delete(Mission08_group1_9.Models.Task task)
-        //{
-        //    _privateTaskContext.Tasks.Remove(task);
-        //    _privateTaskContext.SaveChanges();
+        [HttpPost]
+        public IActionResult Delete(Mission08_group1_9.Models.Task task)
+        {
+            _privateTaskContext.Tasks.Remove(task);
+            _privateTaskContext.SaveChanges();
 
-        //    return RedirectToAction("Quadrants");
-        //}
+            return RedirectToAction("Quadrants");
+        }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
