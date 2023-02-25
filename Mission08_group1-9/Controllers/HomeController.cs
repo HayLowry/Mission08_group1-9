@@ -67,7 +67,7 @@ namespace Mission08_group1_9.Controllers
                 .Include(x => x.Category)
                 .ToList();
 
-            return View(prospectives);
+            return View("Quadrants",prospectives);
         }
 
         [HttpGet]
