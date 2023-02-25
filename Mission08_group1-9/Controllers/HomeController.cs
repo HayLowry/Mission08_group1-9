@@ -54,7 +54,7 @@ namespace Mission08_group1_9.Controllers
             }
             else
             {
-                ViewBag.Tasko = _privateTaskContext.Tasks.ToList();
+                ViewBag.Categories = _privateTaskContext.Categories.ToList();
                 return View(task);
             }
 
@@ -67,14 +67,14 @@ namespace Mission08_group1_9.Controllers
                 .Include(x => x.Category)
                 .ToList();
 
-            return View("Quadrants",prospectives);
+            return View(prospectives);
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int taskid)
         {
-            ViewBag.Tasko = _privateTaskContext.Categories.ToList();
-            var submission = _privateTaskContext.Tasks.Single(x => x.CategoryId == id);
+            ViewBag.Categories = _privateTaskContext.Categories.ToList();
+            var submission = _privateTaskContext.Tasks.Single(x => x.TaskId == taskid);
 
             return View("AddTask", submission);
         }
@@ -89,9 +89,9 @@ namespace Mission08_group1_9.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int taskid)
         {
-            var submission = _privateTaskContext.Tasks.Single(x => x.CategoryId == id);
+            var submission = _privateTaskContext.Tasks.Single(x => x.TaskId == taskid);
             return View(submission);
         }
 
@@ -103,7 +103,6 @@ namespace Mission08_group1_9.Controllers
 
             return RedirectToAction("Quadrants");
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

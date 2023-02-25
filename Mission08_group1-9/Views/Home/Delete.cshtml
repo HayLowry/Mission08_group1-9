@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Delete Task";
+}
+@model Tasko
+
+<h2>Confirm Deletion</h2>
+<h3>Are you sure you want to delete the Task: @Model.TaskTitle?</h3>
+<form method="post" asp-controller="Home" asp-action="Delete">
+    <input type="hidden" asp-for="TaskId" />
+    <button type="submit">Delete</button>
+    <a asp-controller="Home" asp-action="Quadrants" class="btn">Cancel</a>
+</form>
