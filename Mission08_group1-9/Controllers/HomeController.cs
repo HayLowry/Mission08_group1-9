@@ -46,15 +46,16 @@ namespace Mission08_group1_9.Controllers
         [HttpPost]
         public IActionResult AddTask(Mission08_group1_9.Models.Tasko task)
         {
+            ViewBag.Categories = _privateTaskContext.Categories.ToList();
+
             if (ModelState.IsValid)
             {
                 _privateTaskContext.Add(task);
                 _privateTaskContext.SaveChanges();
-                return View(task);
+                return RedirectToAction("Quadrants");
             }
             else
             {
-                ViewBag.Categories = _privateTaskContext.Categories.ToList();
                 return View(task);
             }
 
