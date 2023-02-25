@@ -38,7 +38,7 @@ namespace Mission08_group1_9.Controllers
         [HttpGet]
         public IActionResult AddTask()
         {
-            ViewBag.Tasko = _privateTaskContext.Tasks.ToList();
+            ViewBag.Categories = _privateTaskContext.Categories.ToList();
 
             return View(new Mission08_group1_9.Models.Tasko());
         }
