@@ -1,0 +1,75 @@
+﻿@{
+}
+@model Mission08_group1_9.Models.Task
+@*this form is for adding a new task*@
+<form id="form" method="post"></form>
+
+@*if you wanted to display a list view in the table this form is for getting rid of a task when complete*@
+@*<form id="checkbox" method="post"></form>*@
+    <table class="table table-striped">
+
+        <tr>
+            <th>Category</th>
+            <th>Task Name</th>
+            <th>Due Date</th>
+            <th>Urgent</th>
+            <th>Important</th>
+            <th></th>
+            
+        </tr>
+        <tr>
+            <td>
+                @*for each category display a new option in the dropdown*@
+                @*<label asp-for="CategoryId">Category</label>*@
+                <select asp-for="CategoryId" class="form-control" form="form">
+                    <option disabled>Select a Category</option>
+                    @foreach (Category cat in ViewBag.Categories)
+                    {
+                        <option value="@cat.CategoryId">@cat.CategoryName</option>
+                    }
+                </select>
+
+            </td>
+            <td>
+                @*<label asp-for="TaskTitle">Task Name</label>*@
+                <input type="text" asp-for="TaskTitle" class="form-control" form="form" />
+            </td>
+            <td>
+                @*<label asp-for="DueDate">Due Date</label>*@
+                <input asp-for="DueDate" type="datetime-local" class="form-control" form="form" />
+            </td>
+
+            <td>
+                <select asp-for="Urgent" class="form-control" form="form">
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>       
+            </td>
+            <td>
+                <select asp-for="Important" class="form-control" form="form">
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+            </td>
+            <td>
+                <button type="submit" form="form" class="btn btn primary">Add</button>
+            </td>
+        </tr>
+
+        @*Add each record from the database to the table*@
+
+        @*@foreach (Mission08_group1_9.Models.Task task in ViewBag.Task)
+        {
+            <tr>
+                <td>@task.Category</td>
+                <td>@task.TaskTitle</td>
+                <td>@task.DueDate</td>
+                <td>@task.Quadrant</td>
+        <td>
+            <input asp-for="Completed" class="form-check-input" type="checkbox" value="True" form="checkbox" onchange="document.getElementById('checkbox').submit()">
+        </td>
+        </tr>
+        }*@
+</table>
+
+
