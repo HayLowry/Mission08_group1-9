@@ -4,23 +4,22 @@
 
 @model List<Tasko>
 
-
+    @* Container to hold the tasks quadrant view *@
     <div class="container">
         <div class="row">
             <div class="col">Urgent</div>
             <div class="col">Not Urgent</div>
         </div>
         <div class="row">
-            <div class="col">Important</div>
-            <div class="col">
+            <div class="col">Important
+            @* Loop to display each task in each assigned column *@
                 @foreach (var t in Model)
                 {
                     @if (t.Urgent == true & t.Important == true)
                     {
-                            <p style="background-color:red">@t.TaskTitle</p>
-                            <p style="background-color:red">@t.DueDate</p>
-                            <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@t.TaskId">Edit</a>
-                            <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@t.TaskId">Delete</a>
+                        <p style="background-color:red">@t.TaskTitle, @t.DueDate </p> 
+                        <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@t.TaskId">Edit</a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@t.TaskId">Delete</a>
                     }
                 }
             </div>
@@ -29,26 +28,23 @@
                 {
                     @if (t.Urgent == true & t.Important == false)
                     {
-                    <p style="background-color:blue">@t.TaskTitle</p>
-                    <p style="background-color:blue">@t.DueDate</p>
-                    <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@t.TaskId">Edit</a>
-                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@t.TaskId">Delete</a>
+                        <p style="background-color:blue">@t.TaskTitle, @t.DueDate </p>
+                        <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@t.TaskId">Edit</a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@t.TaskId">Delete</a>
                     }
                 }
             </div>
      </div>
 
     <div class="row">
-        <div class="col">Not Important</div>
-        <div class="col">
+        <div class="col">Not Important
             @foreach (var t in Model)
             {
                 @if (t.Urgent == false & t.Important == true)
                 {
-                <p style="background-color:orange">@t.TaskTitle</p>
-                <p style="background-color:orange">@t.DueDate</p>
-                <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@t.TaskId">Edit</a>
-                <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@t.TaskId">Delete</a>
+                    <p style="background-color:orange">@t.TaskTitle, @t.DueDate </p>
+                    <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@t.TaskId">Edit</a>
+                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@t.TaskId">Delete</a>
                 }
             }
         </div>
@@ -57,10 +53,9 @@
             {
                 @if (t.Urgent == false & t.Important == false)
                 {
-                <p style="background-color:green">@t.TaskTitle</p>
-                <p style="background-color:green">@t.DueDate</p>
-                <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@t.TaskId">Edit</a>
-                <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@t.TaskId">Delete</a>
+                    <p style="background-color:green">@t.TaskTitle, @t.DueDate</p>
+                    <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@t.TaskId">Edit</a>
+                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@t.TaskId">Delete</a>
                 }
             }
         </div>
