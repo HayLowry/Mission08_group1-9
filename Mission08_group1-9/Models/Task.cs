@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mission08_group1_9.Models
 {
-    public class Task
+    public class Tasko
     {
         [Key]
         [Required]

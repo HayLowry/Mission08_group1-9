@@ -13,7 +13,7 @@ namespace Mission08_group1_9.Models
 
         }
 
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<Tasko> Tasks { get; set; }
         public DbSet<Category> Categories { get; set; }
 
         // seeding data
@@ -42,8 +42,8 @@ namespace Mission08_group1_9.Models
                 }
                 );
 
-            mb.Entity<Task>().HasData(
-                new Task
+            mb.Entity<Tasko>().HasData(
+                new Tasko
                 {
                     TaskId = 1,
                     TaskTitle = "My First Task",

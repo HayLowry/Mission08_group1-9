@@ -8,7 +8,7 @@ using Mission08_group1_9.Models;
 namespace Mission08_group1_9.Migrations
 {
     [DbContext(typeof(TaskContext))]
-    [Migration("20230224221815_Initial")]
+    [Migration("20230225035253_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,7 +53,7 @@ namespace Mission08_group1_9.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Mission08_group1_9.Models.Task", b =>
+            modelBuilder.Entity("Mission08_group1_9.Models.Tasko", b =>
                 {
                     b.Property<int>("TaskId")
                         .ValueGeneratedOnAdd()
@@ -97,7 +97,7 @@ namespace Mission08_group1_9.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Mission08_group1_9.Models.Task", b =>
+            modelBuilder.Entity("Mission08_group1_9.Models.Tasko", b =>
                 {
                     b.HasOne("Mission08_group1_9.Models.Category", "Category")
                         .WithMany()

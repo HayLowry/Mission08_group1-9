@@ -51,7 +51,7 @@ namespace Mission08_group1_9.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Mission08_group1_9.Models.Task", b =>
+            modelBuilder.Entity("Mission08_group1_9.Models.Tasko", b =>
                 {
                     b.Property<int>("TaskId")
                         .ValueGeneratedOnAdd()
@@ -95,7 +95,7 @@ namespace Mission08_group1_9.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Mission08_group1_9.Models.Task", b =>
+            modelBuilder.Entity("Mission08_group1_9.Models.Tasko", b =>
                 {
                     b.HasOne("Mission08_group1_9.Models.Category", "Category")
                         .WithMany()

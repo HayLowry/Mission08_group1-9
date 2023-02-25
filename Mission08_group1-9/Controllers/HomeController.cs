@@ -38,13 +38,13 @@ namespace Mission08_group1_9.Controllers
         [HttpGet]
         public IActionResult AddTask()
         {
-            ViewBag.Task = _privateTaskContext.Tasks.ToList();
+            ViewBag.Tasko = _privateTaskContext.Tasks.ToList();
 
-            return View(new Mission08_group1_9.Models.Task());
+            return View(new Mission08_group1_9.Models.Tasko());
         }
 
         [HttpPost]
-        public IActionResult AddTask(Mission08_group1_9.Models.Task task)
+        public IActionResult AddTask(Mission08_group1_9.Models.Tasko task)
         {
             if (ModelState.IsValid)
             {
@@ -54,7 +54,7 @@ namespace Mission08_group1_9.Controllers
             }
             else
             {
-                ViewBag.Task = _privateTaskContext.Tasks.ToList();
+                ViewBag.Tasko = _privateTaskContext.Tasks.ToList();
                 return View(task);
             }
 
@@ -73,14 +73,14 @@ namespace Mission08_group1_9.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            ViewBag.Task = _privateTaskContext.Categories.ToList();
+            ViewBag.Tasko = _privateTaskContext.Categories.ToList();
             var submission = _privateTaskContext.Tasks.Single(x => x.CategoryId == id);
 
             return View("AddTask", submission);
         }
 
         [HttpPost]
-        public IActionResult Edit(Mission08_group1_9.Models.Task keiraKnightley)
+        public IActionResult Edit(Mission08_group1_9.Models.Tasko keiraKnightley)
         {
             _privateTaskContext.Update(keiraKnightley);
             _privateTaskContext.SaveChanges();
@@ -96,7 +96,7 @@ namespace Mission08_group1_9.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(Mission08_group1_9.Models.Task task)
+        public IActionResult Delete(Mission08_group1_9.Models.Tasko task)
         {
             _privateTaskContext.Tasks.Remove(task);
             _privateTaskContext.SaveChanges();
