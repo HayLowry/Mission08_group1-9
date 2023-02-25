@@ -5,20 +5,60 @@
 @model List<Task>
 
 
-<div class="container">
-    <div class="row">
-        <div class="col">Urgent</div>
-        <div class="col">Not Urgent</div>
-    </div>
-    <div class="row">
-        <div class="col">Important</div>
-        <div class="col">1</div>
-        <div class="col">2</div>
-    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">Urgent</div>
+            <div class="col">Not Urgent</div>
+        </div>
+        <div class="row">
+            <div class="col">Important</div>
+            <div class="col">
+                @foreach (var t in Model)
+                {
+                @if (t.Urgent == true & t.Important == true)
+                {
+                        <p style="background-color:red">@t.TaskTitle</p>
+                        <p style="background-color:red">@t.DueDate</p>
+                        <a asp-controller="Home" asp-action="Edit" asp-route-TaskID="@t.TaskID">Edit</a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-TaskID="@m.TaskID">Delete</a>
+                 }   
+            </div>
+            <div class="col">
+                @foreach (var t in Model)
+                {
+                @if (t.Urgent == true & t.Important == false)
+                {
+                <p style="background-color:blue">@t.TaskTitle</p>
+                <p style="background-color:blue">@t.DueDate</p>
+                <a asp-controller="Home" asp-action="Edit" asp-route-TaskID="@t.TaskID">Edit</a>
+                <a asp-controller="Home" asp-action="Delete" asp-route-TaskID="@m.TaskID">Delete</a>
+                    }
+            </div>
+     </div>
 
     <div class="row">
         <div class="col">Not Important</div>
-        <div class="col">3</div>
-        <div class="col">4</div>
+        <div class="col">
+            @foreach (var t in Model)
+                {
+            @if (t.Urgent == false & t.Important == true)
+                {
+            <p style="background-color:orange">@t.TaskTitle</p>
+            <p style="background-color:orange">@t.DueDate</p>
+            <a asp-controller="Home" asp-action="Edit" asp-route-TaskID="@t.TaskID">Edit</a>
+            <a asp-controller="Home" asp-action="Delete" asp-route-TaskID="@m.TaskID">Delete</a>
+                    }
+        </div>
+        <div class="col">
+            @foreach (var t in Model)
+                {
+            @if (t.Urgent == false & t.Important == false)
+                {
+            <p style="background-color:green">@t.TaskTitle</p>
+            <p style="background-color:green">@t.DueDate</p>
+            <a asp-controller="Home" asp-action="Edit" asp-route-TaskID="@t.TaskID">Edit</a>
+            <a asp-controller="Home" asp-action="Delete" asp-route-TaskID="@m.TaskID">Delete</a>
+                    }
+        </div>
     </div>
-</div>
+    </div>
