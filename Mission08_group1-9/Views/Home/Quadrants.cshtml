@@ -6,12 +6,9 @@
 
     @* Container to hold the tasks quadrant view *@
     <div class="container">
+ 
         <div class="row">
             <div class="col">Urgent</div>
-            <div class="col">Not Urgent</div>
-        </div>
-        <div class="row">
-            <div class="col"></div>
             <div class="col">Important
             @* Loop to display each task in each assigned column *@
                 @foreach (var t in Model)
@@ -42,7 +39,7 @@
      </div>
 
     <div class="row">
-        <div class="col"></div>
+        <div class="col">Not Urgent</div>
         <div class="col">
             @foreach (var t in Model)
             {
