@@ -5,41 +5,47 @@
 @model List<Tasko>
 
     @* Container to hold the tasks quadrant view *@
-    <div class="container">
- 
-        <div class="row">
-            <div class="col-2" style="text-align:center">Urgent</div>
-            <div class="col-5">Important
-            @* Loop to display each task in each assigned column *@
-                @foreach (var t in Model)
-                {
-                    @if (t.Urgent == true & t.Important == true)
-                    {
-                        <div style="background-color:red" >
-                            <p >@t.TaskTitle, @t.DueDate </p>
-                            <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@t.TaskId">Edit</a>
-                            <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@t.TaskId">Delete</a>
-                        </div>
-                    }
-                }
-            </div>
-            <div class="col-5">Not Important
-                @foreach (var t in Model)
-                {
-                @if (t.Urgent == true & t.Important == false)
-                    {
-                        <div style="background-color:blue">
-                            <p>@t.TaskTitle, @t.DueDate </p>
-                            <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@t.TaskId">Edit</a>
-                            <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@t.TaskId">Delete</a>
-                        </div>
-                    }
-                }
-            </div>
-     </div>
+<div class="container">
 
     <div class="row">
-        <div class="col-2" style="text-align:center">Not Urgent</div>
+        <div class="col-2 font-weight-bold"></div>
+        <div class="col-5 font-weight-bold text-center" style="padding-bottom: 30px;">Important</div>
+        <div class="col-5 font-weight-bold text-center">Not Important</div>
+    </div>
+
+    <div class="row">
+        <div class="col-2 font-weight-bold" style="text-align:center">Urgent</div>
+        <div class="col-5">
+            @* Loop to display each task in each assigned column *@
+            @foreach (var t in Model)
+            {
+                @if (t.Urgent == true & t.Important == true)
+                {
+                    <div style="background-color:red">
+                        <p>@t.TaskTitle, @t.DueDate </p>
+                        <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@t.TaskId">Edit</a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@t.TaskId">Delete</a>
+                    </div>
+                }
+            }
+        </div>
+        <div class="col-5">
+            @foreach (var t in Model)
+            {
+                @if (t.Urgent == true & t.Important == false)
+                {
+                    <div style="background-color:blue">
+                        <p>@t.TaskTitle, @t.DueDate </p>
+                        <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@t.TaskId">Edit</a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@t.TaskId">Delete</a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2 font-weight-bold" style="text-align:center">Not Urgent</div>
         <div class="col-5">
             @foreach (var t in Model)
             {
@@ -67,4 +73,4 @@
             }
         </div>
     </div>
-    </div>
+</div>
