@@ -8,7 +8,7 @@
     <div class="container">
  
         <div class="row">
-            <div class="col-2">Urgent</div>
+            <div class="col-2" style="text-align:center">Urgent</div>
             <div class="col-5">Important
             @* Loop to display each task in each assigned column *@
                 @foreach (var t in Model)
@@ -39,7 +39,7 @@
      </div>
 
     <div class="row">
-        <div class="col-2">Not Urgent</div>
+        <div class="col-2" style="text-align:center">Not Urgent</div>
         <div class="col-5">
             @foreach (var t in Model)
             {
